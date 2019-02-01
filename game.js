@@ -35,11 +35,14 @@ class Game {
                 {name: this.channelId, text: 'No thanks', type: 'button', value: 'no'},
             ],
         }];
-        return this.web.chat.postMessage({channel: this.userId, text, attachments});
+        this.web.conversations.open({users: this.userId}).then((res) => {
+          return this.web.chat.postMessage({channel: res.channel.id, text, attachments});
+        });
     }
 
     accept(payload, respond) {
         console.log(`User ${this.userId} wants to play 2TL on ${this.channelId}`);
+      console.log(payload)
         const dialog = {
             callback_id: 'accept',
             title: 'Submit truths and lie',
@@ -50,7 +53,7 @@ class Game {
                 {type: "textarea", label: "Lie", name: "lie"},
             ],
         };
-        this.web.dialog.open({trigger_id: payload.trigger_id, dialog});
+        this.web.dialog.open({trigger_id: "blank_trigger_id", dialog}); // there's a bug here! 
         const msg = payload.original_message;
         msg.attachments[0].text = 'Awesome!';
         msg.attachments[0].actions = [];
@@ -110,12 +113,13 @@ class Game {
     }
 
     respondToChoice(payload) {
+        console.log(payload);
         const num = parseInt(payload.actions[0].value, 10);
         const text = this.lie === num
               ? `Yes! <@${this.userId}>'s lie is, “${this.choices[num]}”`
               : `No, <@${this.userId}> did not lie about “${this.choices[num]}”`;
         console.log(`${payload.user.id} thinks “${this.choices[num]}” is ${this.userId}'s lie in ${this.channelId}`);
-        this.web.chat.postEphemeral({channel: this.channelId, text, user: payload.user.id});
+        this.web.chat.postMessage({channel: this.channelId, text, user: payload.user.id});
     }
 
     revealAnswer() {

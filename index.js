@@ -5,13 +5,13 @@ const { createMessageAdapter } = require('@slack/interactive-messages');
 const { WebClient } = require('@slack/client');
 const Game = require('./game');
 
-const port = process.env.PORT || 3000;
+const port = 5000;
 
 const web = new WebClient(process.env.SLACK_TOKEN);
 const slackEvents = createEventAdapter(process.env.SLACK_SIGNING_SECRET, {includeBody: 1});
 const slackInteractions = createMessageAdapter(process.env.SLACK_SIGNING_SECRET);
 
-/** @type {Record<any, Record<any, Game>>} */
+// /** @type {Record<any, Record<any, Game>>} */
 const games = {};
 
 slackEvents.on('error', console.error);
@@ -67,5 +67,8 @@ slackInteractions.action({within: 'dialog', callbackId: 'guess'}, (payload, resp
 const app = express();
 app.use('/events', slackEvents.expressMiddleware());
 app.use('/actions', slackInteractions.expressMiddleware());
+app.use(express.static('public'));
+app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'));
+app.get('/localhost.mlh.io/activities/build-slack-apps', (req, res) => res.redirect('http://localhost.mlh.io'));
 
 http.createServer(app).listen(port, () => console.log(`server listening on port ${port}`));
