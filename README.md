@@ -1,38 +1,42 @@
-# MLH Localhost: Build Apps for Slack
+Welcome to MLH Localhost: Build Apps for Slack! 
+=================
 
-This repository contains the sample code for the MLH Localhost: Build Apps for Slack workshop.
+Click `Show` in the header to run your app. 
 
-## Sample Code / Downloads
+Your Project
+------------
 
- - Two Truths and a Lie - [Demo][4] / [Source][1] / [Download][2]
+### ← README.md
 
-## License
+This file contains information about all the other files in this project! 
 
-Unless otherwise stated, the code in this repo is released under the MIT
-License.
+### ← index.html
 
-```
-Copyright (c) 2017 Major League Hacking, Inc.
+This is just a placeholder file because you'll be interacting with this app in a Slack workspace instead of through your browser! 
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+### ← game.js
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+This file manages the logic of the game. 
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE
-```
-[1]: https://github.com/MLH/mlh-localhost-slack-app
-[2]: https://github.com/MLH/mlh-localhost-slack-app/archive/master.zip
-[3]: https://localhost.mlh.io/activities/bulid-slack-apps/
-[4]: http://mlhlocal.host/slack-demo
+### ← index.js
+
+This file handles the requests and responses of our app. 
+
+### ← .env
+
+The file where you'll need to put your environment variables. This is called a dot file (because of the period before env) and no one will be able to see what you put in this file. You'll need to put some values from the Slack API here. 
+
+### ← package.json
+
+This file contains a list of dependencies that your app requires to run. Lucky for you, Glitch will install them automatically for you! 
+
+### ← assets
+
+Drag in `assets`, like images or music, to add them to your project
+
+**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
+
+Find out more [about Glitch](https://glitch.com/about).
+-------------------
+
+\ ゜o゜)ノ

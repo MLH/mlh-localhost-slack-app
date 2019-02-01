@@ -1,0 +1,18 @@
+{
+  "name": "mlh-localhost-slack-app-master",
+  "version": "1.0.0",
+  "description": "This repository contains the sample code for the MLH Localhost: Build Apps for Slack workshop.",
+  "main": "index.html",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@slack/client": "^4.6.0",
+    "@slack/events-api": "^2.1.0",
+    "@slack/interactive-messages": "^1.0.1",
+    "express": "^4.16.3"
+  }
+}
